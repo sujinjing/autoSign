@@ -6,7 +6,6 @@ let [cookie, user, pass, to, yun_cookie, yun_to] = process.argv.slice(2);
 process.env.user = user;
 process.env.pass = pass;
 let score = 0;
-
 let headers = {
   'content-type': 'application/json; charset=utf-8',
   'user-agent':
@@ -63,9 +62,9 @@ const drawFn = async () => {
       credentials: 'include',
     }
   ).then((res) => res.json());
-
+  console.log(today_status, 'today_status');
   if (today_status.err_no !== 0) return Promise.reject('签到失败！');
-  if (today_status.data) return Promise.resolve('今日已经签到！');
+  if (today_status.data.check_in_done) return Promise.resolve('今日已经签到！');
 
   // 签到
   const check_in = await fetch('https://api.juejin.cn/growth_api/v1/check_in', {
@@ -73,7 +72,7 @@ const drawFn = async () => {
     method: 'POST',
     credentials: 'include',
   }).then((res) => res.json());
-
+  console.log(check_in, 'check_in');
   if (check_in.err_no !== 0) return Promise.reject('签到异常！');
   return Promise.resolve(`签到成功！当前积分；${check_in.data.sum_point}`);
 })()
