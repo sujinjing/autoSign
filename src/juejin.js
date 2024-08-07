@@ -32,7 +32,7 @@ const drawFn = async () => {
     }
   ).then((res) => {
     console.log(res, 'check_in res');
-    return res.json();
+    return res;
   });
 
   if (today.err_no !== 0) return Promise.reject('已经签到！免费抽奖失败！');
@@ -44,7 +44,7 @@ const drawFn = async () => {
     headers,
     method: 'POST',
     credentials: 'include',
-  }).then((res) => res.json());
+  }).then((res) => res);
 
   if (draw.err_no !== 0) return Promise.reject('已经签到！免费抽奖异常！');
   console.log(JSON.stringify(draw, null, 2));
@@ -64,7 +64,7 @@ const drawFn = async () => {
       method: 'GET',
       credentials: 'include',
     }
-  ).then((res) => res.json());
+  ).then((res) => res);
   console.log(today_status, 'today_status');
   if (today_status.err_no !== 0) return Promise.reject('签到失败！');
   if (today_status.data.check_in_done) return Promise.resolve('今日已经签到！');
@@ -74,7 +74,7 @@ const drawFn = async () => {
     headers,
     method: 'POST',
     credentials: 'include',
-  }).then((res) => res.json());
+  }).then((res) => res);
   console.log(check_in, 'check_in');
   if (check_in.err_no !== 0) return Promise.reject('签到异常！');
   return Promise.resolve(`签到成功！当前积分；${check_in.data.sum_point}`);
