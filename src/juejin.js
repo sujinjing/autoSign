@@ -30,7 +30,10 @@ const drawFn = async () => {
       method: 'GET',
       credentials: 'include',
     }
-  ).then((res) => res.json());
+  ).then((res) => {
+    console.log(res, 'check_in res');
+    return res.json();
+  });
 
   if (today.err_no !== 0) return Promise.reject('已经签到！免费抽奖失败！');
   if (today.data.free_count === 0)
