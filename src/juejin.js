@@ -1,12 +1,10 @@
 const fetch = require('node-fetch');
 const sendMail = require('../sendMail');
 
-// let [cookie, user, pass, to, yun_cookie, yun_to] = process.argv.slice(2);
+let [cookie, user, pass, to, yun_cookie, yun_to] = process.argv.slice(2);
 
-let cookie =
-  '_ga=GA1.2.1958018911.1658626253; sid_guard=90706e86dff65a34aef9f731355e2101%7C1723182811%7C31536000%7CSat%2C+09-Aug-2025+05%3A53%3A31+GMT; uid_tt=236944591f27cfbb393e6372568f0dbf; uid_tt_ss=236944591f27cfbb393e6372568f0dbf; sid_tt=90706e86dff65a34aef9f731355e2101; sessionid=90706e86dff65a34aef9f731355e2101; sessionid_ss=90706e86dff65a34aef9f731355e2101; is_staff_user=false; sid_ucp_v1=1.0.0-KDBkMDA0ZGE3NWY0MjIzMjU0OTg4YzAxZTNjZGZkZTQzMTk0MDRjNTYKFQj47dDA_fUxENvd1rUGGLAUOAhACxoCbGYiIDkwNzA2ZTg2ZGZmNjVhMzRhZWY5ZjczMTM1NWUyMTAx; ssid_ucp_v1=1.0.0-KDBkMDA0ZGE3NWY0MjIzMjU0OTg4YzAxZTNjZGZkZTQzMTk0MDRjNTYKFQj47dDA_fUxENvd1rUGGLAUOAhACxoCbGYiIDkwNzA2ZTg2ZGZmNjVhMzRhZWY5ZjczMTM1NWUyMTAx; store-region=cn-bj; store-region-src=uid; __tea_cookie_tokens_2608=%257B%2522user_unique_id%2522%253A%25227123745470258513423%2522%252C%2522web_id%2522%253A%25227123745470258513423%2522%252C%2522timestamp%2522%253A1733472928232%257D; _tea_utm_cache_2608={%22utm_source%22:%22gold_browser_extension%22}; _tea_utm_cache_2018={%22utm_source%22:%22gold_browser_extension%22}; csrf_session_id=ca66a5cb4aa51c150c88262a9e315543; _tea_utm_cache_576092=undefined';
-// process.env.user = user;
-// process.env.pass = pass;
+process.env.user = user;
+process.env.pass = pass;
 let score = 0;
 let headers = {
   // 'content-type': 'application/json; charset=utf-8',
