@@ -1,4 +1,4 @@
-name: juejin_CheckIn
+name: auto_helper
 
 on:
   schedule:

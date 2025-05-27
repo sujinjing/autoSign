@@ -1,24 +1,20 @@
 {
-  "name": "public_actions",
+  "name": "auto-check-in",
   "version": "1.0.0",
-  "description": "定时任务 自动签到 自动抽奖",
-  "main": "index.js",
-  "scripts": {
-    "serve": "node src/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hccluck/public_actions.git"
-  },
+  "description": "定时任务 自动签到",
+  "main": "src/v2Free.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hccluck/public_actions/issues"
+  "scripts": {
+    "dev:juejin": "nodemon src/juejin.js",
+    "dev:v2Free": "nodemon src/v2Free.js"
   },
-  "homepage": "https://github.com/hccluck/public_actions#readme",
   "dependencies": {
+    "form-data": "^4.0.0",
+    "formidable": "^3.5.1",
+    "juejin-helper": "^1.6.1",
     "node-fetch": "^2.6.1",
-    "nodemailer": "^6.6.3"
+    "nodemailer": "6.9.9"
   }
 }
