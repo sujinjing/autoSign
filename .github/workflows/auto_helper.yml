@@ -2,7 +2,7 @@ name: auto_helper
 
 on:
   schedule:
-    - cron: "0 2 * * *" # 该时间为UTC时间，比北京时间晚8个小时，每天早上5点半自动执行
+    - cron: "0 5 * * *" # 该时间为UTC时间，比北京时间晚8个小时，每天早上5点半自动执行
 
   workflow_dispatch:
 
