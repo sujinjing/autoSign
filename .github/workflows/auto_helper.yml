@@ -31,8 +31,8 @@ jobs:
           TO: ${{ secrets.TO }}
         run: |
           npm i
-          # 生成0~6小时之间的随机延迟（以秒为单位）
-          DELAY=$((RANDOM % 21600))
-          echo "⏳ 延迟 $DELAY 秒后执行（约 $((DELAY/3600)) 小时）"
+          # 生成0~20分钟之间的随机延迟（以秒为单位）
+          DELAY=$((RANDOM % 1200))
+          echo "⏳ 延迟 $DELAY 秒后执行（约 $((DELAY/60)) 分钟）"
           sleep $DELAY
           node src/juejin.js "${COOKIE}" "${USER}" "${PASS}" "${TO}"
