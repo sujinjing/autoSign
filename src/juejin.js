@@ -9,7 +9,26 @@ function addHtmlText (name, value) {
 	return `<p style="text-indent: 2em">${name}: ${value}</p><br/>`
 }
 
+function normalizeCookie(value) {
+	const normalized = (value || '')
+		.trim()
+		.replace(/^cookie\s*:\s*/i, '')
+		.replace(/[\r\n]+/g, '');
+
+	if (!normalized) {
+		throw new Error('COOKIE 为空，请在 GitHub Actions Secrets 中配置掘金 Cookie');
+	}
+
+	if (/[\u0000-\u001F\u007F]/.test(normalized)) {
+		throw new Error('COOKIE 中包含非法控制字符，请重新复制为单行 Cookie 后更新 GitHub Secret');
+	}
+
+	return normalized;
+}
+
 async function run() {
+
+	cookie = normalizeCookie(cookie);
 
 	let html = '<h1 style="text-align: center">掘金自动化通知</h1>'
 	const juejin = new JuejinHelper();
@@ -65,5 +84,7 @@ async function run() {
 		html,
 	}).catch(console.error);
 }
-run().then(r => r);
-
+run().catch((error) => {
+	console.error(error.message || error);
+	process.exit(1);
+});
