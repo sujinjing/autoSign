@@ -2,7 +2,7 @@ name: auto_helper
 
 on:
   schedule:
-    - cron: "0 4 * * *" # UTC时间4点，即北京时间12点执行一次
+    - cron: "17 4 * * *" # UTC时间4:17，即北京时间12:17执行，避开GitHub Actions整点高峰
   workflow_dispatch:
 
 jobs:
